@@ -1,0 +1,1 @@
+# strava_compare_segment_times_with_friends
