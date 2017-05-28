@@ -61,7 +61,7 @@ begin
   page += 1
 end until activities.length == 0
 
-for ride_summary in all_rides[80..90] do
+for ride_summary in all_rides do
   ride = nil
   look_for_rate_limit do
     ride = @client.retrieve_an_activity(ride_summary["id"])
@@ -80,6 +80,7 @@ for segment_id in segment_ids do
     segment = @client.retrieve_a_segment(segment_id)
   end
   result[segment["name"]] = {} unless result[segment["name"]]
+  result[segment["name"]]["strava_link"] = "https://www.strava.com/segments/#{segment_id}"
 
   leaderboard = []
   look_for_rate_limit do
