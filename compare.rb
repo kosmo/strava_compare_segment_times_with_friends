@@ -8,8 +8,9 @@ def look_for_rate_limit(&block)
     yield
   rescue => e
     if /Rate Limit Exceeded/ =~ e.message
-      puts "Rate Limit Exceeded ... wait" 
-      sleep 1500
+      wait_for_seconds = (15 - Time.now.min.modulo(15)) * 60 # strava restarts the rate limit at 0, 15, 30 and 45 minutes after the hour
+      puts "Rate Limit Exceeded ... wait #{wait_for_seconds} seconds"
+      sleep wait_for_seconds
       yield
     else
       raise e
