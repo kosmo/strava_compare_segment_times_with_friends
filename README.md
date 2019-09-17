@@ -1,3 +1,5 @@
+Due to changes (OAUTH) on the Strava API this won't work anymore. I am looking for a solution.
+
 Compares the segment times off all your rides with all your friends.
 
 1. Checkout repo
